@@ -7,7 +7,7 @@ namespace BaltaDataAccess
     {
         static void Main(string[] args)
         {
-            const string connectionString = "Server=localhost,1433;Database=balta;User ID=sa;Password=1q2w3e4r@#$";
+            const string connectionString = "Server=localhost,1433;Database=balta;User ID=sa;Password=Test@Test123";
 
             using (var connection = new SqlConnection(connectionString))
             {

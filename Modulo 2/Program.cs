@@ -9,7 +9,7 @@ namespace BaltaDataAccess
     {
         static void Main(string[] args)
         {
-            const string connectionString = "Server=localhost,1433;Database=balta;User ID=sa;Password=1q2w3e4r@#$";
+            const string connectionString = "Server=localhost,1433;Database=balta;User ID=sa;Password=Test@Test123";
 
             using (var connection = new SqlConnection(connectionString))
             {
@@ -20,28 +20,6 @@ namespace BaltaDataAccess
                 GetCategory(connection);
 
             }
-        }
-
-        static void ListCategories(SqlConnection connection)
-        {
-            var categories = connection.Query<Category>("SELECT [Id], [Title] FROM [Category]");
-            foreach (var item in categories)
-            {
-                Console.WriteLine($"{item.Id} - {item.Title}");
-            }
-        }
-
-        static void GetCategory(SqlConnection connection)
-        {
-            var category = connection
-                .QueryFirstOrDefault<Category>(
-                    "SELECT TOP 1 [Id], [Title] FROM [Category] WHERE [Id]=@id",
-                    new
-                    {
-                        id = "af3407aa-11ae-4621-a2ef-2028b85507c4"
-                    });
-            Console.WriteLine($"{category.Id} - {category.Title}");
-
         }
 
         static void CreateCategory(SqlConnection connection)
@@ -101,5 +79,28 @@ namespace BaltaDataAccess
 
             Console.WriteLine($"{rows} registros excluídos");
         }
+
+        static void ListCategories(SqlConnection connection)
+        {
+            var categories = connection.Query<Category>("SELECT [Id], [Title] FROM [Category]");
+            foreach (var item in categories)
+            {
+                Console.WriteLine($"{item.Id} - {item.Title}");
+            }
+        }
+
+        static void GetCategory(SqlConnection connection)
+        {
+            var category = connection
+                .QueryFirstOrDefault<Category>(
+                    "SELECT TOP 1 [Id], [Title] FROM [Category] WHERE [Id]=@id",
+                    new
+                    {
+                        id = "af3407aa-11ae-4621-a2ef-2028b85507c4"
+                    });
+            Console.WriteLine($"{category.Id} - {category.Title}");
+
+        }
+
     }
 }

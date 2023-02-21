@@ -21,5 +21,8 @@ namespace Blog.Repositories
         public void Update(T model) => _connection.Update(model);
 
         public void Delete(T model) => _connection.Delete(model);
+        
+        public void Delete(T model) => _connection.Delete(model);
+
     }
 }

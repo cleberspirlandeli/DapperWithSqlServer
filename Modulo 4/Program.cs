@@ -7,19 +7,20 @@ namespace Blog
 {
     class Program
     {
-        private const string CONNECTION_STRING = @"Server=localhost,1433;Database=Blog;User ID=sa;Password=1q2w3e4r@#$";
+        // Database 'Blog' has script for creation
+        private const string CONNECTION_STRING = @"Server=localhost,1433;Database=Blog;User ID=sa;Password=Test@Test123";
 
         static void Main(string[] args)
         {
             using var connection = new SqlConnection(CONNECTION_STRING);
             var repository = new Repository<User>(connection);
 
-            // CreateUser(repository);
+             CreateUser(repository);
             // UpdateUser(repository);
             // DeleteUser(repository);
-            // ReadUser(repository);
+                ReadUser(repository);
             // ReadUsers(repository);
-            ReadWithRoles(connection);
+            // ReadWithRoles(connection);
         }
 
         private static void CreateUser(Repository<User> repository)
