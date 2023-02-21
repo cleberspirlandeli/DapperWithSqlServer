@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using Blog.Models;
 using Dapper.Contrib.Extensions;
 using Microsoft.Data.SqlClient;
 
 namespace Blog.Repositories
 {
-    public class Repository<T> where T : class
+    public class Repository<T> where T : Entity
     {
         private readonly SqlConnection _connection;
 
@@ -21,8 +22,5 @@ namespace Blog.Repositories
         public void Update(T model) => _connection.Update(model);
 
         public void Delete(T model) => _connection.Delete(model);
-        
-        public void Delete(T model) => _connection.Delete(model);
-
     }
 }

@@ -15,11 +15,11 @@ namespace Blog
             using var connection = new SqlConnection(CONNECTION_STRING);
             var repository = new Repository<User>(connection);
 
-             CreateUser(repository);
+            //CreateUser(repository);
             // UpdateUser(repository);
             // DeleteUser(repository);
-                ReadUser(repository);
-            // ReadUsers(repository);
+            ReadUser(repository);
+            ReadUsers(repository);
             // ReadWithRoles(connection);
         }
 
@@ -47,7 +47,7 @@ namespace Blog
 
         private static void ReadUser(Repository<User> repository)
         {
-            var user = repository.Read(2);
+            var user = repository.Read(1);
             Console.WriteLine(user?.Email);
         }
 
